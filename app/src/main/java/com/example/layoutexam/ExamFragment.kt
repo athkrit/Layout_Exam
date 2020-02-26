@@ -2,14 +2,17 @@ package com.example.layoutexam
 
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.layoutexam.databinding.FragmentExamBinding
+import kotlin.math.log
 
 /**
  * A simple [Fragment] subclass.
@@ -217,9 +220,12 @@ class ExamFragment : Fragment() {
         choicesLayoutSixth
     )
     lateinit var currentQuestion: Question
-    lateinit var currentLayout: MutableList<Choice>
     private var questionIndex = 0
     private var layoutIndex = 0
+    var startTime:Long =0
+    var stopTime:Long =0
+    var time:Int =0
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -237,14 +243,21 @@ class ExamFragment : Fragment() {
         setQuestion(binding)
         examViewModel.clickEvent.observe(viewLifecycleOwner, Observer {
             it?.let {
+                stopTime = System.currentTimeMillis()
+                if(it.toLowerCase().equals(currentQuestion.answers.toLowerCase())){
+                    Toast.makeText(activity,"Correct "+((stopTime-startTime)/1000 )+" sec",Toast.LENGTH_SHORT).show()
+                } else{
+                    Toast.makeText(activity,"Wrong",Toast.LENGTH_SHORT).show()
+                }
                 examViewModel.finish()
-                changeQuestionAndLayout()
+                changeQuestionAndAnswerLayout()
                 setQuestion(binding)
                 setAnswerLayout(adapter)
                 setItemsPerRow(binding)
+                startTime =System.currentTimeMillis()
             }
         })
-
+        startTime =System.currentTimeMillis()
         return binding.root
     }
 
@@ -253,7 +266,7 @@ class ExamFragment : Fragment() {
         binding.textQuestion.text = currentQuestion.question
     }
 
-    private fun changeQuestionAndLayout() {
+    private fun changeQuestionAndAnswerLayout() {
         if(questionIndex >1 && layoutIndex >4){
             layoutIndex =0
             questionIndex = 0
