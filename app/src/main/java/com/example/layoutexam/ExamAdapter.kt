@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.layoutexam.databinding.ListChoiceItemBinding
 
-class ExamAdapter(val examViewModel: ExamViewModel): RecyclerView.Adapter<ExamAdapter.ViewHolder>() {
+class ExamAdapter(val examListener: ExamListener): RecyclerView.Adapter<ExamAdapter.ViewHolder>() {
 //    lateinit var liveData: MutableLiveData<MutableList<ExamFragment.Choice>>
     var data =  listOf<ExamFragment.Choice>()
         set(value) {
@@ -20,15 +20,13 @@ class ExamAdapter(val examViewModel: ExamViewModel): RecyclerView.Adapter<ExamAd
 
     override fun onBindViewHolder(holder: ExamAdapter.ViewHolder, position: Int) {
         val item = data[position]
-        holder.bind(item,examViewModel)
+        holder.bind(item,examListener)
     }
     class ViewHolder(val binding: ListChoiceItemBinding) : RecyclerView.ViewHolder(binding.root){
-        fun bind(item: ExamFragment.Choice,examViewModel :ExamViewModel) {
+        fun bind(item: ExamFragment.Choice,examListener :ExamListener) {
             binding.imgChoice.setImageResource(item.icon)
-            binding.textChoice.text = item.iconName
-            binding.layout.setOnClickListener(View.OnClickListener {
-                examViewModel.onItemclick(item.iconName)
-            })
+            binding.examListener = examListener
+            binding.choice = item
         }
         companion object {
             fun from(parent: ViewGroup): ViewHolder {
