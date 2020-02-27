@@ -34,8 +34,6 @@ class ExamViewModel (
     private suspend fun insert(examScore: ExamScore) {
         withContext(Dispatchers.IO) {
             database.insert(examScore)
-            database.getAllNights()
-            Log.d("asdasd", "add "+database.getAllNights())
         }
     }
 

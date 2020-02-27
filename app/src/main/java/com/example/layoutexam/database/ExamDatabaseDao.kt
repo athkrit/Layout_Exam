@@ -11,5 +11,5 @@ interface ExamDatabaseDao {
     fun insert(examScore: ExamScore)
 
     @Query("SELECT * FROM exam_score_table ORDER BY userId DESC")
-    fun getAllNights(): List<ExamScore>
+    fun getAllData(): LiveData<List<ExamScore>>
 }
