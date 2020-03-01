@@ -32,7 +32,7 @@ class ExamAdapter(val examListener: ExamListener): RecyclerView.Adapter<ExamAdap
 
         fun setTextChoice(item: ExamFragment.Choice) {
             binding.textChoice.text = item.iconName
-            if(item.hasIconName){
+            if(item.isShowIconName){
                 binding.textChoice.visibility = View.VISIBLE
             } else {
                 binding.textChoice.visibility = View.INVISIBLE
