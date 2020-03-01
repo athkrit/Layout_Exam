@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item>
+        <shape android:shape="oval">
+
+            <size
+                android:width="@dimen/iconSize"
+                android:height="@dimen/iconSize" />
+
+            <stroke
+                android:width="5dp"
+                android:color="@color/blueIcon"/>
+        </shape>
+    </item>
+
+    <item
+        android:width="@dimen/iconDrawableSize"
+        android:height="@dimen/iconDrawableSize"
+        android:drawable="@drawable/voucher_2"
+        android:start="@dimen/iconPadding"
+        android:top="@dimen/iconPadding" />
+
+</layer-list>

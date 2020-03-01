@@ -9,7 +9,7 @@
         android:id="@+id/homeFragment"
         android:name="com.example.layoutexam.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" >
+        tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_homeFragment_to_examFragment2"
             app:destination="@id/examFragment" />
@@ -20,10 +20,21 @@
     <fragment
         android:id="@+id/examFragment"
         android:name="com.example.layoutexam.ExamFragment"
-        android:label="ExamFragment" />
+        android:label="ExamFragment">
+        <action
+            android:id="@+id/action_examFragment_to_successFragment"
+            app:destination="@id/successFragment"
+            app:popUpTo="@+id/examFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
     <fragment
         android:id="@+id/summaryFragment"
         android:name="com.example.layoutexam.SummaryFragment"
         android:label="fragment_summary"
         tools:layout="@layout/fragment_summary" />
+    <fragment
+        android:id="@+id/successFragment"
+        android:name="com.example.layoutexam.SuccessFragment"
+        android:label="fragment_success"
+        tools:layout="@layout/fragment_success" />
 </navigation>

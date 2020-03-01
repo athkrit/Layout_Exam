@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="iconSize">140dp</dimen>
+    <dimen name="iconDrawableSize">80dp</dimen>
+    <dimen name="iconPadding">30dp</dimen>
+    <dimen name="iconFrame">5dp</dimen>
+</resources>

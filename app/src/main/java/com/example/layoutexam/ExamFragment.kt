@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.layoutexam.database.ExamDatabaseDao
 import com.example.layoutexam.database.ExamScoreDatabase
@@ -32,186 +33,138 @@ class ExamFragment : Fragment() {
 
     private val questions: MutableList<Question> = mutableListOf(
         Question(
-            question = "ถ้าคุณต้องการไปหน้าตั้งค่าคุณจะกดปุ่มไหน",
+            question = "SETTING",
             answers = "setting"
         ),
         Question(
-            question = "ถ้าคุณต้องการไปหน้าหลักคุณจะกดปุ่มไหน",
+            question = "HOME",
             answers = "Home"
         ),
         Question(
-            question = "ถ้าคุณต้องการไปหน้ารีดีมคุณจะกดปุ่มไหน",
+            question = "REDEEM",
             answers = "Redeem"
         ),
         Question(
-            question = "ถ้าคุณต้องการไปหน้าประวัติคุณจะกดปุ่มไหน",
+            question = "HISTORY",
             answers = "History"
         ),
         Question(
-            question = "ถ้าคุณต้องการไปหน้าตโปรโมชันุณจะกดปุ่มไหน",
+            question = "PROMOTION",
             answers = "Promotion"
         ),
         Question(
-            question = "Voucher",
+            question = "VOUCHER",
             answers = "Voucher"
         )
     )
     private val choicesLayoutFirst: MutableList<Choice> = mutableListOf(
         Choice(
             iconName = "setting",
-            icon = R.drawable.dice_1
+            icon = R.drawable.circular_setting
         ),
         Choice(
             iconName = "home",
-            icon = R.drawable.dice_1
+            icon = R.drawable.circular_home
         ),
         Choice(
             iconName = "redeem",
-            icon = R.drawable.dice_1
+            icon = R.drawable.circular_redeem
         ),
         Choice(
             iconName = "History",
-            icon = R.drawable.dice_1
+            icon = R.drawable.circular_history
         ),
         Choice(
             iconName = "Promotion",
-            icon = R.drawable.dice_1
+            icon = R.drawable.circular_promotion
         ),
         Choice(
             iconName = "Voucher",
-            icon = R.drawable.dice_1
+            icon = R.drawable.circular_voucher
         )
     )
     private val choicesLayoutSecond: MutableList<Choice> = mutableListOf(
         Choice(
             iconName = "setting",
-            icon = R.drawable.dice_2
+            icon = R.drawable.circular_setting_2
         ),
         Choice(
             iconName = "home",
-            icon = R.drawable.dice_2
+            icon = R.drawable.circular_home_2
         ),
         Choice(
             iconName = "redeem",
-            icon = R.drawable.dice_2
+            icon = R.drawable.circular_redeem_2
         ),
         Choice(
             iconName = "History",
-            icon = R.drawable.dice_2
+            icon = R.drawable.circular_history_2
         ),
         Choice(
             iconName = "Promotion",
-            icon = R.drawable.dice_2
+            icon = R.drawable.circular_promotion_2
         ),
         Choice(
             iconName = "Voucher",
-            icon = R.drawable.dice_2
+            icon = R.drawable.circular_voucher_2
         )
     )
     private val choicesLayoutThird: MutableList<Choice> = mutableListOf(
         Choice(
             iconName = "setting",
-            icon = R.drawable.dice_3
+            icon = android.R.color.transparent
         ),
         Choice(
             iconName = "home",
-            icon = R.drawable.dice_3
+            icon = android.R.color.transparent
         ),
         Choice(
             iconName = "redeem",
-            icon = R.drawable.dice_3
+            icon = android.R.color.transparent
         ),
         Choice(
             iconName = "History",
-            icon = R.drawable.dice_3
+            icon = android.R.color.transparent
         ),
         Choice(
             iconName = "Promotion",
-            icon = R.drawable.dice_3
+            icon = android.R.color.transparent
         ),
         Choice(
             iconName = "Voucher",
-            icon = R.drawable.dice_3
+            icon = android.R.color.transparent
         )
     )
     private val choicesLayoutFourth: MutableList<Choice> = mutableListOf(
         Choice(
-            iconName = "setting",
-            icon = R.drawable.dice_4
+            iconName = "",
+            icon = R.drawable.circular_setting
         ),
         Choice(
-            iconName = "home",
-            icon = R.drawable.dice_4
+            iconName = "",
+            icon = R.drawable.circular_home
         ),
         Choice(
-            iconName = "redeem",
-            icon = R.drawable.dice_4
+            iconName = "",
+            icon = R.drawable.circular_redeem
         ),
         Choice(
-            iconName = "History",
-            icon = R.drawable.dice_4
+            iconName = "",
+            icon = R.drawable.circular_history
         ),
         Choice(
-            iconName = "Promotion",
-            icon = R.drawable.dice_4
+            iconName = "",
+            icon = R.drawable.circular_promotion
         ),
         Choice(
-            iconName = "Voucher",
-            icon = R.drawable.dice_4
+            iconName = "",
+            icon = R.drawable.circular_voucher
         )
     )
-    private val choicesLayoutFifth: MutableList<Choice> = mutableListOf(
-        Choice(
-            iconName = "setting",
-            icon = R.drawable.dice_5
-        ),
-        Choice(
-            iconName = "home",
-            icon = R.drawable.dice_5
-        ),
-        Choice(
-            iconName = "redeem",
-            icon = R.drawable.dice_5
-        ),
-        Choice(
-            iconName = "History",
-            icon = R.drawable.dice_5
-        ),
-        Choice(
-            iconName = "Promotion",
-            icon = R.drawable.dice_5
-        ),
-        Choice(
-            iconName = "Voucher",
-            icon = R.drawable.dice_5
-        )
-    )
-    private val choicesLayoutSixth: MutableList<Choice> = mutableListOf(
-        Choice(
-            iconName = "setting",
-            icon = R.drawable.dice_6
-        ),
-        Choice(
-            iconName = "home",
-            icon = R.drawable.dice_6
-        ),
-        Choice(
-            iconName = "redeem",
-            icon = R.drawable.dice_6
-        ),
-        Choice(
-            iconName = "History",
-            icon = R.drawable.dice_6
-        ),
-        Choice(
-            iconName = "Promotion",
-            icon = R.drawable.dice_6
-        ),
-        Choice(
-            iconName = "Voucher",
-            icon = R.drawable.dice_6
-        )
-    )
+    private val choicesLayoutFifth: MutableList<Choice> = choicesLayoutFirst
+    private val choicesLayoutSixth: MutableList<Choice> = choicesLayoutSecond
+    private val choicesLayoutSeventh: MutableList<Choice> = choicesLayoutThird
+    private val choicesLayoutEighth: MutableList<Choice> = choicesLayoutFourth
 
     private val choiceLayout: MutableList<MutableList<Choice>> = mutableListOf(
         choicesLayoutFirst,
@@ -219,7 +172,9 @@ class ExamFragment : Fragment() {
         choicesLayoutThird,
         choicesLayoutFourth,
         choicesLayoutFifth,
-        choicesLayoutSixth
+        choicesLayoutSixth,
+        choicesLayoutSeventh,
+        choicesLayoutEighth
     )
     lateinit var currentQuestion: Question
     private var questionIndex = 0
@@ -248,15 +203,15 @@ class ExamFragment : Fragment() {
         examViewModel.clickEvent.observe(viewLifecycleOwner, Observer {
             it?.let {
                 stopTime = System.currentTimeMillis()
-                var time = (stopTime-startTime)/1000
+                var time = (stopTime- startTime)
                 if(it.toLowerCase().equals(currentQuestion.answers.toLowerCase())){
                     allAnswer.add("Correct")
-                    allTimeUsed.add("$time sec")
-                    Toast.makeText(activity, "Correct $time sec",Toast.LENGTH_SHORT).show()
+                    allTimeUsed.add("$time ms")
+                    Toast.makeText(activity, "Correct $time ms",Toast.LENGTH_SHORT).show()
                 } else{
                     allAnswer?.add("Wrong")
-                    allTimeUsed?.add("$time sec")
-                    Toast.makeText(activity, "Wrong $time sec",Toast.LENGTH_SHORT).show()
+                    allTimeUsed?.add("$time ms")
+                    Toast.makeText(activity, "Wrong $time ms",Toast.LENGTH_SHORT).show()
                 }
                 changeQuestionAndAnswerLayout(examViewModel)
                 setQuestion(binding)
@@ -275,9 +230,10 @@ class ExamFragment : Fragment() {
     }
 
     private fun changeQuestionAndAnswerLayout(examViewModel: ExamViewModel) {
-        if(questionIndex >1 && layoutIndex >4){
+        if(questionIndex > 1 && layoutIndex > 6){
             examViewModel.insertData(allAnswer,allTimeUsed)
             Log.d("asdasd", "add")
+            findNavController().navigate(R.id.action_examFragment_to_successFragment)
             layoutIndex =0
             questionIndex = 0
             questions.shuffle()
