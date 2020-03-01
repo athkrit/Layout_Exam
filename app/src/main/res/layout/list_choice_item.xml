@@ -24,7 +24,6 @@
             android:layout_gravity="center" />
 
         <TextView
-            android:text="@{choice.iconName}"
             android:gravity="center"
             android:id="@+id/text_choice"
             android:layout_width="match_parent"

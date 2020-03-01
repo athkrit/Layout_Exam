@@ -27,7 +27,8 @@ class ExamFragment : Fragment() {
 
     data class Choice(
         val iconName: String,
-        val icon: Int
+        val icon: Int,
+        val hasIconName:Boolean
     )
 
     private val questions: MutableList<Question> = mutableListOf(
@@ -59,157 +60,193 @@ class ExamFragment : Fragment() {
     private val choicesLayoutFirst: MutableList<Choice> = mutableListOf(
         Choice(
             iconName = "setting",
-            icon = R.drawable.dice_1
+            icon = R.drawable.dice_1,
+            hasIconName = true
         ),
         Choice(
             iconName = "home",
-            icon = R.drawable.dice_1
+            icon = R.drawable.dice_1,
+            hasIconName = true
         ),
         Choice(
             iconName = "redeem",
-            icon = R.drawable.dice_1
+            icon = R.drawable.dice_1,
+            hasIconName = true
         ),
         Choice(
             iconName = "History",
-            icon = R.drawable.dice_1
+            icon = R.drawable.dice_1,
+            hasIconName = true
         ),
         Choice(
             iconName = "Promotion",
-            icon = R.drawable.dice_1
+            icon = R.drawable.dice_1,
+            hasIconName = true
         ),
         Choice(
             iconName = "Voucher",
-            icon = R.drawable.dice_1
+            icon = R.drawable.dice_1,
+            hasIconName = true
         )
     )
     private val choicesLayoutSecond: MutableList<Choice> = mutableListOf(
         Choice(
             iconName = "setting",
-            icon = R.drawable.dice_2
+            icon = R.drawable.dice_2,
+            hasIconName = true
         ),
         Choice(
             iconName = "home",
-            icon = R.drawable.dice_2
+            icon = R.drawable.dice_2,
+            hasIconName= true
         ),
         Choice(
             iconName = "redeem",
-            icon = R.drawable.dice_2
+            icon = R.drawable.dice_2,
+            hasIconName= true
         ),
         Choice(
             iconName = "History",
-            icon = R.drawable.dice_2
+            icon = R.drawable.dice_2,
+            hasIconName= true
         ),
         Choice(
             iconName = "Promotion",
-            icon = R.drawable.dice_2
+            icon = R.drawable.dice_2,
+            hasIconName= true
         ),
         Choice(
             iconName = "Voucher",
-            icon = R.drawable.dice_2
+            icon = R.drawable.dice_2,
+            hasIconName= true
         )
     )
     private val choicesLayoutThird: MutableList<Choice> = mutableListOf(
         Choice(
             iconName = "setting",
-            icon = R.drawable.dice_3
+            icon = R.drawable.dice_3,
+            hasIconName= true
         ),
         Choice(
             iconName = "home",
-            icon = R.drawable.dice_3
+            icon = R.drawable.dice_3,
+            hasIconName= true
         ),
         Choice(
             iconName = "redeem",
-            icon = R.drawable.dice_3
+            icon = R.drawable.dice_3,
+            hasIconName= true
         ),
         Choice(
             iconName = "History",
-            icon = R.drawable.dice_3
+            icon = R.drawable.dice_3,
+            hasIconName= true
         ),
         Choice(
             iconName = "Promotion",
-            icon = R.drawable.dice_3
+            icon = R.drawable.dice_3,
+            hasIconName= true
         ),
         Choice(
             iconName = "Voucher",
-            icon = R.drawable.dice_3
+            icon = R.drawable.dice_3,
+            hasIconName= true
         )
     )
     private val choicesLayoutFourth: MutableList<Choice> = mutableListOf(
         Choice(
             iconName = "setting",
-            icon = R.drawable.dice_4
+            icon = R.drawable.dice_4,
+            hasIconName= false
         ),
         Choice(
             iconName = "home",
-            icon = R.drawable.dice_4
+            icon = R.drawable.dice_4,
+            hasIconName= false
         ),
         Choice(
             iconName = "redeem",
-            icon = R.drawable.dice_4
+            icon = R.drawable.dice_4,
+            hasIconName= false
         ),
         Choice(
             iconName = "History",
-            icon = R.drawable.dice_4
+            icon = R.drawable.dice_4,
+            hasIconName= false
         ),
         Choice(
             iconName = "Promotion",
-            icon = R.drawable.dice_4
+            icon = R.drawable.dice_4,
+            hasIconName= false
         ),
         Choice(
             iconName = "Voucher",
-            icon = R.drawable.dice_4
+            icon = R.drawable.dice_4,
+            hasIconName= false
         )
     )
     private val choicesLayoutFifth: MutableList<Choice> = mutableListOf(
         Choice(
             iconName = "setting",
-            icon = R.drawable.dice_5
+            icon = R.drawable.dice_5,
+            hasIconName= false
         ),
         Choice(
             iconName = "home",
-            icon = R.drawable.dice_5
+            icon = R.drawable.dice_5,
+            hasIconName= false
         ),
         Choice(
             iconName = "redeem",
-            icon = R.drawable.dice_5
+            icon = R.drawable.dice_5,
+            hasIconName= false
         ),
         Choice(
             iconName = "History",
-            icon = R.drawable.dice_5
+            icon = R.drawable.dice_5,
+            hasIconName= false
         ),
         Choice(
             iconName = "Promotion",
-            icon = R.drawable.dice_5
+            icon = R.drawable.dice_5,
+            hasIconName= false
         ),
         Choice(
             iconName = "Voucher",
-            icon = R.drawable.dice_5
+            icon = R.drawable.dice_5,
+            hasIconName= false
         )
     )
     private val choicesLayoutSixth: MutableList<Choice> = mutableListOf(
         Choice(
             iconName = "setting",
-            icon = R.drawable.dice_6
+            icon = R.drawable.dice_6,
+            hasIconName= false
         ),
         Choice(
             iconName = "home",
-            icon = R.drawable.dice_6
+            icon = R.drawable.dice_6,
+            hasIconName= false
         ),
         Choice(
             iconName = "redeem",
-            icon = R.drawable.dice_6
+            icon = R.drawable.dice_6,
+            hasIconName= false
         ),
         Choice(
             iconName = "History",
-            icon = R.drawable.dice_6
+            icon = R.drawable.dice_6,
+            hasIconName= false
         ),
         Choice(
             iconName = "Promotion",
-            icon = R.drawable.dice_6
+            icon = R.drawable.dice_6,
+            hasIconName= false
         ),
         Choice(
             iconName = "Voucher",
-            icon = R.drawable.dice_6
+            icon = R.drawable.dice_6,
+            hasIconName= false
         )
     )
 
