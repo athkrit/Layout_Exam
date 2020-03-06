@@ -28,7 +28,8 @@ class ExamFragment : Fragment() {
 
     data class Choice(
         val iconName: String,
-        val icon: Int
+        val icon: Int,
+        val isShowIconName:Boolean
     )
 
     private val questions: MutableList<Question> = mutableListOf(
@@ -60,105 +61,129 @@ class ExamFragment : Fragment() {
     private val choicesLayoutFirst: MutableList<Choice> = mutableListOf(
         Choice(
             iconName = "setting",
-            icon = R.drawable.circular_setting
+            icon = R.drawable.circular_setting,
+            isShowIconName = true
         ),
         Choice(
             iconName = "home",
-            icon = R.drawable.circular_home
+            icon = R.drawable.circular_home,
+            isShowIconName = true
         ),
         Choice(
             iconName = "redeem",
-            icon = R.drawable.circular_redeem
+            icon = R.drawable.circular_redeem,
+            isShowIconName = true
         ),
         Choice(
             iconName = "History",
-            icon = R.drawable.circular_history
+            icon = R.drawable.circular_history,
+            isShowIconName = true
         ),
         Choice(
             iconName = "Promotion",
-            icon = R.drawable.circular_promotion
+            icon = R.drawable.circular_promotion,
+            isShowIconName = true
         ),
         Choice(
             iconName = "Voucher",
-            icon = R.drawable.circular_voucher
+            icon = R.drawable.circular_voucher,
+            isShowIconName = true
         )
     )
     private val choicesLayoutSecond: MutableList<Choice> = mutableListOf(
         Choice(
             iconName = "setting",
-            icon = R.drawable.circular_setting_2
+            icon = R.drawable.circular_setting_2,
+            isShowIconName = true
         ),
         Choice(
             iconName = "home",
-            icon = R.drawable.circular_home_2
+            icon = R.drawable.circular_home_2,
+            isShowIconName = true
         ),
         Choice(
             iconName = "redeem",
-            icon = R.drawable.circular_redeem_2
+            icon = R.drawable.circular_redeem_2,
+            isShowIconName = true
         ),
         Choice(
             iconName = "History",
-            icon = R.drawable.circular_history_2
+            icon = R.drawable.circular_history_2,
+            isShowIconName = true
         ),
         Choice(
             iconName = "Promotion",
-            icon = R.drawable.circular_promotion_2
+            icon = R.drawable.circular_promotion_2,
+            isShowIconName = true
         ),
         Choice(
             iconName = "Voucher",
-            icon = R.drawable.circular_voucher_2
+            icon = R.drawable.circular_voucher_2,
+            isShowIconName = true
         )
     )
     private val choicesLayoutThird: MutableList<Choice> = mutableListOf(
         Choice(
             iconName = "setting",
-            icon = android.R.color.transparent
+            icon = android.R.color.transparent,
+            isShowIconName = true
         ),
         Choice(
             iconName = "home",
-            icon = android.R.color.transparent
+            icon = android.R.color.transparent,
+            isShowIconName = true
         ),
         Choice(
             iconName = "redeem",
-            icon = android.R.color.transparent
+            icon = android.R.color.transparent,
+            isShowIconName = true
         ),
         Choice(
             iconName = "History",
-            icon = android.R.color.transparent
+            icon = android.R.color.transparent,
+            isShowIconName = true
         ),
         Choice(
             iconName = "Promotion",
-            icon = android.R.color.transparent
+            icon = android.R.color.transparent,
+            isShowIconName = true
         ),
         Choice(
             iconName = "Voucher",
-            icon = android.R.color.transparent
+            icon = android.R.color.transparent,
+            isShowIconName = true
         )
     )
     private val choicesLayoutFourth: MutableList<Choice> = mutableListOf(
         Choice(
-            iconName = "",
-            icon = R.drawable.circular_setting
+            iconName = "Setting",
+            icon = R.drawable.circular_setting,
+            isShowIconName = false
         ),
         Choice(
-            iconName = "",
-            icon = R.drawable.circular_home
+            iconName = "Home",
+            icon = R.drawable.circular_home,
+            isShowIconName = false
         ),
         Choice(
-            iconName = "",
-            icon = R.drawable.circular_redeem
+            iconName = "Redeem",
+            icon = R.drawable.circular_redeem,
+            isShowIconName = false
         ),
         Choice(
-            iconName = "",
-            icon = R.drawable.circular_history
+            iconName = "History",
+            icon = R.drawable.circular_history,
+            isShowIconName = false
         ),
         Choice(
-            iconName = "",
-            icon = R.drawable.circular_promotion
+            iconName = "Promotion",
+            icon = R.drawable.circular_promotion,
+            isShowIconName = false
         ),
         Choice(
-            iconName = "",
-            icon = R.drawable.circular_voucher
+            iconName = "Voucher",
+            icon = R.drawable.circular_voucher,
+            isShowIconName = false
         )
     )
     private val choicesLayoutFifth: MutableList<Choice> = choicesLayoutFirst
@@ -203,7 +228,7 @@ class ExamFragment : Fragment() {
         examViewModel.clickEvent.observe(viewLifecycleOwner, Observer {
             it?.let {
                 stopTime = System.currentTimeMillis()
-                var time = (stopTime- startTime)
+                var time = (stopTime - startTime)
                 if(it.toLowerCase().equals(currentQuestion.answers.toLowerCase())){
                     allAnswer.add("Correct")
                     allTimeUsed.add("$time ms")

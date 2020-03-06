@@ -25,9 +25,20 @@ class ExamAdapter(val examListener: ExamListener): RecyclerView.Adapter<ExamAdap
     class ViewHolder(val binding: ListChoiceItemBinding) : RecyclerView.ViewHolder(binding.root){
         fun bind(item: ExamFragment.Choice,examListener :ExamListener) {
             binding.imgChoice.setImageResource(item.icon)
+            setTextChoice(item)
             binding.examListener = examListener
             binding.choice = item
         }
+
+        fun setTextChoice(item: ExamFragment.Choice) {
+            binding.textChoice.text = item.iconName
+            if(item.isShowIconName){
+                binding.textChoice.visibility = View.VISIBLE
+            } else {
+                binding.textChoice.visibility = View.INVISIBLE
+            }
+        }
+
         companion object {
             fun from(parent: ViewGroup): ViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
