@@ -20,7 +20,8 @@
     <fragment
         android:id="@+id/examFragment"
         android:name="com.example.layoutexam.ExamFragment"
-        android:label="ExamFragment">
+        android:label="ExamFragment"
+        tools:layout="@layout/fragment_exam">
         <action
             android:id="@+id/action_examFragment_to_successFragment"
             app:destination="@id/successFragment"
@@ -36,5 +37,11 @@
         android:id="@+id/successFragment"
         android:name="com.example.layoutexam.SuccessFragment"
         android:label="fragment_success"
-        tools:layout="@layout/fragment_success" />
+        tools:layout="@layout/fragment_success">
+        <action
+            android:id="@+id/action_successFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/examFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>

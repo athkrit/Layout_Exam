@@ -35,7 +35,7 @@ class ExamFragment : Fragment() {
     private val questions: MutableList<Question> = mutableListOf(
         Question(
             question = "SETTING",
-            answers = "setting"
+            answers = "Setting"
         ),
         Question(
             question = "HOME",
@@ -60,17 +60,17 @@ class ExamFragment : Fragment() {
     )
     private val choicesLayoutFirst: MutableList<Choice> = mutableListOf(
         Choice(
-            iconName = "setting",
+            iconName = "Setting",
             icon = R.drawable.circular_setting,
             isShowIconName = true
         ),
         Choice(
-            iconName = "home",
+            iconName = "Home",
             icon = R.drawable.circular_home,
             isShowIconName = true
         ),
         Choice(
-            iconName = "redeem",
+            iconName = "Redeem",
             icon = R.drawable.circular_redeem,
             isShowIconName = true
         ),
@@ -92,17 +92,17 @@ class ExamFragment : Fragment() {
     )
     private val choicesLayoutSecond: MutableList<Choice> = mutableListOf(
         Choice(
-            iconName = "setting",
+            iconName = "Setting",
             icon = R.drawable.circular_setting_2,
             isShowIconName = true
         ),
         Choice(
-            iconName = "home",
+            iconName = "Home",
             icon = R.drawable.circular_home_2,
             isShowIconName = true
         ),
         Choice(
-            iconName = "redeem",
+            iconName = "Redeem",
             icon = R.drawable.circular_redeem_2,
             isShowIconName = true
         ),
@@ -124,17 +124,17 @@ class ExamFragment : Fragment() {
     )
     private val choicesLayoutThird: MutableList<Choice> = mutableListOf(
         Choice(
-            iconName = "setting",
+            iconName = "Setting",
             icon = android.R.color.transparent,
             isShowIconName = true
         ),
         Choice(
-            iconName = "home",
+            iconName = "Home",
             icon = android.R.color.transparent,
             isShowIconName = true
         ),
         Choice(
-            iconName = "redeem",
+            iconName = "Redeem",
             icon = android.R.color.transparent,
             isShowIconName = true
         ),
